@@ -165,6 +165,48 @@ To use these tools with Claude Code:
    Then use commands like `/create-prd` to quickly start the workflow.
    Note: This setup can also be adopted for a global level across all your projects, please refer to the Claude Code documentation [here](https://docs.anthropic.com/en/docs/claude-code/memory) and [here](https://docs.anthropic.com/en/docs/claude-code/common-workflows#create-personal-slash-commands).
 
+### Claude Code
+
+Claude Code provides the most seamless integration with this workflow through custom commands that preserve the exact methodology while providing self-documenting, discoverable commands:
+
+#### Quick Setup
+1. **Copy command files**: Copy the command files to your Claude Code commands directory:
+   ```bash
+   mkdir -p ~/.claude/commands
+   cp claude-code-commands/*.md ~/.claude/commands/
+   ```
+
+2. **Restart Claude Code**: Exit and restart Claude Code to load the new commands:
+   ```bash
+   /exit
+   claude
+   ```
+
+3. **Start the workflow**: Use the commands in sequence:
+   ```bash
+   /create-prd
+   /generate-tasks  
+   /process-tasks
+   ```
+
+#### Self-Documenting Commands
+Each command includes clear headers identifying its source and purpose:
+- **`/create-prd`** - Initiates PRD creation with structured clarifying questions
+- **`/generate-tasks`** - Generates task list from existing PRD using two-phase approach
+- **`/process-tasks`** - Processes tasks one-by-one with approval gates and git integration
+- **`/ai-dev-help`** - Displays workflow guide and command reference
+
+#### Workflow Integration
+The commands integrate seamlessly with Claude Code's existing features:
+- **File Organization**: Automatic `/tasks` directory management
+- **Git Integration**: Conventional commits with test validation
+- **Progress Tracking**: Built-in TodoWrite integration
+- **Error Handling**: Graceful handling of missing files and dependencies
+
+**Project Setup**: Ensure your project has a `/tasks` directory where PRDs and task lists will be stored.
+
+For detailed setup instructions and troubleshooting, see [claude-code-setup.md](claude-code-setup.md).
+
 ### Other Tools
 
 For other AI-powered IDEs or CLIs:
